@@ -94,6 +94,7 @@ public static class LuaBinder
 		LuaFramework_GameManagerWrap.Register(L);
 		LuaFramework_LuaManagerWrap.Register(L);
 		LuaFramework_PanelManagerWrap.Register(L);
+		LuaFramework_PrefebManagerWrap.Register(L);
 		LuaFramework_SoundManagerWrap.Register(L);
 		LuaFramework_TimerManagerWrap.Register(L);
 		LuaFramework_ThreadManagerWrap.Register(L);

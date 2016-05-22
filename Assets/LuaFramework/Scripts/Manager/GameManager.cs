@@ -244,6 +244,9 @@ namespace LuaFramework {
         /// 析构函数
         /// </summary>
         void OnDestroy() {
+
+            // Util.CallMethod("Game", "UnLoad");
+
             if (NetManager != null) {
                 NetManager.Unload();
             }
