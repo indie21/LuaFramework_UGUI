@@ -11,6 +11,7 @@ local core = require "sproto.core"
 local print_r = require "3rd/sproto/print_r"
 
 require "Logic/LuaClass"
+require "Logic/Cube"
 require "Logic/CtrlManager"
 require "Common/functions"
 require "Controller/PromptCtrl"
@@ -37,7 +38,7 @@ function Game.OnInitOK()
     -- networkMgr:SendConnect();
 
     -- --注册LuaView--
-    -- this.InitViewPanels();
+    this.InitViewPanels();
 
     -- this.test_class_func();
     -- this.test_pblua_func();
@@ -47,14 +48,13 @@ function Game.OnInitOK()
     -- this.test_sproto_func();
     -- coroutine.start(this.test_coroutine);
 
-    -- CtrlManager.Init();
-    -- local ctrl = CtrlManager.GetCtrl(CtrlNames.Prompt);
-    -- if ctrl ~= nil and AppConst.ExampleMode then
-    --     ctrl:Awake();
-    -- end
+    CtrlManager.Init();
+    local ctrl = CtrlManager.GetCtrl(CtrlNames.Prompt);
+    if ctrl ~= nil and AppConst.ExampleMode then
+        ctrl:Awake();
+    end
 
     this.TryPrefeb()
-
     logWarn('LuaFramework InitOK--->>>');
 end
 
@@ -227,8 +227,8 @@ function Game.Unload()
 end
 
 function Game.TryPrefeb()
-    prefebMgr:NewPrefeb("cube",
-                        "cube",
+    prefebMgr:NewPrefeb("Cube",
+                        "Cube",
                         this.OnCreate)
 end
 

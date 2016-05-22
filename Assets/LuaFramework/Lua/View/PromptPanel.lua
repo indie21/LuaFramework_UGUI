@@ -4,6 +4,9 @@ local gameObject;
 PromptPanel = {};
 local this = PromptPanel;
 
+function PromptPanel.Start(obj)
+end
+
 --启动事件--
 function PromptPanel.Awake(obj)
 	gameObject = obj;
