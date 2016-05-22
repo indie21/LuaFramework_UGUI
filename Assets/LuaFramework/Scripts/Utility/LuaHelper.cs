@@ -29,6 +29,15 @@ namespace LuaFramework {
             return AppFacade.Instance.GetManager<PanelManager>(ManagerName.Panel);
         }
 
+
+        /// <summary>
+        /// Prefeb管理器
+        /// </summary>
+        public static PrefebManager GetPrefebManager() {
+            return AppFacade.Instance.GetManager<PrefebManager>(ManagerName.Prefeb);
+        }
+
+
         /// <summary>
         /// 资源管理器
         /// </summary>

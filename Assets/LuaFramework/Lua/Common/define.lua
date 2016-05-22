@@ -26,6 +26,7 @@ ByteBuffer = LuaFramework.ByteBuffer;
 
 resMgr = LuaHelper.GetResManager();
 panelMgr = LuaHelper.GetPanelManager();
+prefebMgr = LuaHelper.GetPrefebManager();
 soundMgr = LuaHelper.GetSoundManager();
 networkMgr = LuaHelper.GetNetManager();
 
