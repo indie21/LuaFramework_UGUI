@@ -227,10 +227,9 @@ function Game.Unload()
 end
 
 function Game.TryPrefeb()
-    prefebMgr:CreatePrefeb("cube",
-                           "cube",
-                           prefebMgr.GameManager,
-                           this.OnCreate)
+    prefebMgr:NewPrefeb("cube",
+                        "cube",
+                        this.OnCreate)
 end
 
 function Game.OnCreate(obj)
