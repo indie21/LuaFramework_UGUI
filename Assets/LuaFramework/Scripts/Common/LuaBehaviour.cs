@@ -13,7 +13,7 @@ namespace LuaFramework {
         protected void Awake() {
             Util.CallMethod(name, "Awake", gameObject);
         }
-
+        
         protected void Start() {
             Util.CallMethod(name, "Start");
         }

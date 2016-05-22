@@ -41,7 +41,7 @@ end
 
 --初始化面板--
 function PromptCtrl.InitPanel(objs)
-    local count = 100; 
+    local count = 100;
     local parent = PromptPanel.gridParent;
     for i = 1, count do
         local go = newObject(objs[0]);
@@ -63,8 +63,7 @@ end
 
 --单击事件--
 function PromptCtrl.OnClick(go)
-    --this.Close()
-    Test.t1()
+    this.Close()
     -- if TestProtoType == ProtocalType.BINARY then
     -- 	this.TestSendBinary();
     -- end
@@ -196,3 +195,4 @@ function PromptCtrl.Close()
     panelMgr:ClosePanel(gameObject);
     Game.SetState(2)
 end
+

@@ -78,4 +78,9 @@ namespace LuaFramework {
         }
 #endif
     }
+
+
+    public void CreateObject(string name, LuaFunction func = null)
+    {
+    }
 }

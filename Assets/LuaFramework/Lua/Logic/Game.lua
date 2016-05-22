@@ -26,11 +26,16 @@ local transform;
 local gameObject;
 local WWW = UnityEngine.WWW;
 
-Game.state = 1;
-
-function Game.SetState(state)
-    this.state = state
+function Game.SetState(s)
+    this.state = s
+    logWarn("set state"..s)
 end
+
+
+function Game.GetState()
+    return this.state or 1
+end
+
 
 function Game.InitViewPanels()
     for i = 1, #PanelNames do
@@ -71,79 +76,21 @@ function Game.OnInitOK()
     -- end
 
 
-
     Test.good = true
-    Rogue.Start()
-
     logWarn('LuaFramework InitOK--->>>');
 end
 
 --测试协同--
-function Game.test_coroutine()    
+function Game.test_coroutine()
     logWarn("1111");
-    coroutine.wait(1);	
+    coroutine.wait(1);
     logWarn("2222");
 
     local www = WWW("http://bbs.ulua.org/readme.txt");
     coroutine.www(www);
-    logWarn(www.text);    	
+    logWarn(www.text);
 end
 
---测试sproto--
-function Game.test_sproto_func()
-    logWarn("test_sproto_func-------->>");
-    local sp = sproto.parse [[
-        .Person {
-        name 0 : string
-        id 1 : integer
-        email 2 : string
-
-        .PhoneNumber {
-        number 0 : string
-        type 1 : integer
-        }
-
-        phone 3 : *PhoneNumber
-        }
-
-        .AddressBook {
-        person 0 : *Person(id)
-        others 1 : *Person
-        }
-        ]]
-
-    local ab = {
-        person = {
-            [10000] = {
-                name = "Alice",
-                id = 10000,
-                phone = {
-                    { number = "123456789" , type = 1 },
-                    { number = "87654321" , type = 2 },
-                }
-            },
-            [20000] = {
-                name = "Bob",
-                id = 20000,
-                phone = {
-                    { number = "01234567890" , type = 3 },
-                }
-            }
-        },
-        others = {
-            {
-                name = "Carol",
-                id = 30000,
-                phone = {
-                    { number = "9876543210" },
-                }
-            },
-        }
-    }
-    local code = sp:encode("AddressBook", ab)
-    local addr = sp:decode("AddressBook", code)
-    print_r(addr)
-end
 
 --测试lpeg--
 function Game.test_lpeg_func()
@@ -167,7 +114,7 @@ function Game.test_pblua_func()
     login.id = 2000;
     login.name = 'game';
     login.email = 'jarjin@163.com';
-    
+
     local msg = login:SerializeToString();
     LuaHelper.OnCallLuaFunc(msg, this.OnPbluaCall);
 end
@@ -237,9 +184,12 @@ function Game.OnDestroy()
     --logWarn('OnDestroy--->>>');
 end
 
+
 function Game.Update()
-    -- logWarn('Update--->>>');
-    if(this.state == 1)
+    local state = this.GetState();
+    -- logWarn('Update--->>>'..state);
+
+    if (state == 1)
     then
         return
     end

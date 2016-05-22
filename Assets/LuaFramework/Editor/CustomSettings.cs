@@ -50,7 +50,7 @@ public static class CustomSettings
         //_GT(typeof(TestExport)),
         //_GT(typeof(TestExport.Space)),
         //-------------------------------------------------------------------        
-                  
+        
         //_GT(typeof(DG.Tweening.DOTween)),
         //_GT(typeof(DG.Tweening.Tween)),
         //_GT(typeof(DG.Tweening.Sequence)).AddExtendType(typeof(DG.Tweening.TweenSettingsExtensions)),        
